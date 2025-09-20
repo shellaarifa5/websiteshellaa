@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shella Arifatun Nisa' - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pink-light': '#FCE7F3',
+                        'pink-soft': '#F9A8D4',
+                        'pink-medium': '#EC4899',
+                        'pink-accent': '#DB2777'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        
+        .gradient-bg { 
+            background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 25%, #fce7f3 50%, #fbcfe8 75%, #f9a8d4 100%);
+            position: relative;
+        }
+        
+        .glass-effect { 
+            backdrop-filter: blur(15px); 
+            background: rgba(255, 255, 255, 0.85); 
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            box-shadow: 0 8px 32px rgba(236, 72, 153, 0.1);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-heart {
+            animation: floatHeart 6s ease-in-out infinite;
+        }
+
+        .floating-circle {
+            animation: floatCircle 8s ease-in-out infinite;
+        }
+
+        .floating-star {
+            animation: floatStar 7s ease-in-out infinite;
+        }
+
+        .floating-triangle {
+            animation: floatTriangle 9s ease-in-out infinite;
+        }
+
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(10deg); opacity: 1; }
+        }
+
+        @keyframes floatCircle {
+            0%, 100% { transform: translateX(0px) translateY(0px) scale(1); opacity: 0.5; }
+            33% { transform: translateX(15px) translateY(-10px) scale(1.1); opacity: 0.8; }
+            66% { transform: translateX(-10px) translateY(-15px) scale(0.9); opacity: 0.6; }
+        }
+
+        @keyframes floatStar {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); opacity: 0.6; }
+            25% { transform: translateY(-15px) rotate(90deg) scale(1.2); opacity: 1; }
+            50% { transform: translateY(-10px) rotate(180deg) scale(0.8); opacity: 0.7; }
+            75% { transform: translateY(-20px) rotate(270deg) scale(1.1); opacity: 0.9; }
+        }
+
+        @keyframes floatTriangle {
+            0%, 100% { transform: translateX(0px) translateY(0px) rotate(0deg); opacity: 0.4; }
+            50% { transform: translateX(20px) translateY(-25px) rotate(180deg); opacity: 0.8; }
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #ec4899, #db2777, #be185d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Animated Background Shapes */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #ec4899, #f9a8d4);
+            border-radius: 50%;
+            animation: moveShape1 15s linear infinite;
+        }
+
+        .shape-2 {
+            top: 60%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #db2777, #fce7f3);
+            border-radius: 20px;
+            animation: moveShape2 20s linear infinite;
+        }
+
+        .shape-3 {
+            bottom: 20%;
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #be185d, #fbcfe8);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: moveShape3 18s linear infinite;
+        }
+
+        @keyframes moveShape1 {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            25% { transform: translateX(50px) translateY(-30px) rotate(90deg); }
+            50% { transform: translateX(100px) translateY(20px) rotate(180deg); }
+            75% { transform: translateX(30px) translateY(40px) rotate(270deg); }
+            100% { transform: translateX(0) translateY(0) rotate(360deg); }
+        }
+
+        @keyframes moveShape2 {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            33% { transform: translateX(-40px) translateY(30px) rotate(120deg); }
+            66% { transform: translateX(20px) translateY(-20px) rotate(240deg); }
+            100% { transform: translateX(0) translateY(0) rotate(360deg); }
+        }
+
+        @keyframes moveShape3 {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            50% { transform: translateX(-30px) translateY(-40px) rotate(180deg); }
+            100% { transform: translateX(0) translateY(0) rotate(360deg); }
+        }
+
+        /* Hover Effects */
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(236, 72, 153, 0.2);
+        }
+
+        /* Sparkle Animation */
+        .sparkle {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sparkle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: sparkleMove 3s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkleMove {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Pulse Animation */
+        .pulse-pink {
+            animation: pulsePink 2s ease-in-out infinite;
+        }
+
+        @keyframes pulsePink {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(236, 72, 153, 0); }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Animated Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="glass-effect border-b border-pink-medium/20 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold gradient-text">Shella Arifatun Nisa'</h1>
+                <div class="flex space-x-6">
+                    <button onclick="showSection('home')" class="nav-btn text-gray-700 hover:text-pink-medium transition-colors">Beranda</button>
+                    <button onclick="showSection('about')" class="nav-btn text-gray-700 hover:text-pink-medium transition-colors">Tentang</button>
+                    <button onclick="showSection('portfolio')" class="nav-btn text-gray-700 hover:text-pink-medium transition-colors">Portfolio</button>
+                    <button onclick="showSection('contact')" class="nav-btn text-gray-700 hover:text-pink-medium transition-colors">Kontak</button>
+                    <button onclick="toggleAdmin()" class="bg-pink-medium text-white px-4 py-2 rounded-full hover:bg-pink-accent transition-colors">Admin</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section-content min-h-screen flex items-center relative">
+        <!-- Floating Elements -->
+        <div class="floating-element floating-heart" style="top: 15%; left: 15%;">
+            <svg class="w-8 h-8 text-pink-300" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
+        <div class="floating-element floating-star" style="top: 25%; right: 20%;">
+            <svg class="w-6 h-6 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+        </div>
+        <div class="floating-element floating-circle" style="bottom: 30%; left: 10%;">
+            <div class="w-4 h-4 bg-pink-200 rounded-full"></div>
+        </div>
+        <div class="floating-element floating-triangle" style="top: 40%; right: 15%;">
+            <div class="w-0 h-0 border-l-4 border-r-4 border-b-6 border-l-transparent border-r-transparent border-b-pink-300"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 id="home-title" class="text-5xl font-bold gradient-text mb-6">Halo, Saya Shella</h2>
+                    <p id="home-subtitle" class="text-xl text-pink-medium mb-8">Creative Designer & Developer</p>
+                    <p id="home-description" class="text-gray-600 mb-8 leading-relaxed">Selamat datang di portfolio saya. Saya adalah seorang desainer kreatif yang passionate dalam menciptakan karya visual yang indah dan fungsional.</p>
+                    <div class="flex space-x-4">
+                        <button onclick="showSection('contact')" class="bg-pink-medium text-white px-8 py-3 rounded-full hover:bg-pink-accent transition-colors shadow-lg sparkle hover-lift pulse-pink">Hubungi Saya</button>
+                        <a href="https://drive.google.com/file/d/12Vo0uacIlcqZMSjWmMbjNdSNwRP_rttu/view?usp=drive_link" target="_blank" class="bg-white text-pink-medium border-2 border-pink-medium px-8 py-3 rounded-full hover:bg-pink-medium hover:text-white transition-colors shadow-lg flex items-center space-x-2 hover-lift sparkle">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                            </svg>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div id="profile-photo" class="w-80 h-80 bg-white border-4 border-pink-light rounded-full flex items-center justify-center shadow-xl overflow-hidden hover-lift pulse-pink">
+                        <svg class="w-40 h-40 text-pink-soft" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-content hidden relative">
+        <!-- Floating Elements -->
+        <div class="floating-element floating-circle" style="top: 20%; right: 10%;">
+            <div class="w-6 h-6 bg-pink-300 rounded-full"></div>
+        </div>
+        <div class="floating-element floating-star" style="bottom: 25%; left: 8%;">
+            <svg class="w-7 h-7 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+            <h2 class="text-4xl font-bold gradient-text text-center mb-12">Tentang Saya</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-effect p-8 rounded-2xl hover-lift">
+                    <div id="about-image-container" class="mb-6 hidden">
+                        <div id="about-image-display" class="w-full h-48 bg-pink-light rounded-lg overflow-hidden">
+                            <!-- About image will be displayed here -->
+                        </div>
+                    </div>
+                    <h3 id="about-title" class="text-2xl font-semibold gradient-text mb-4">Profil</h3>
+                    <p id="about-content" class="text-gray-600 leading-relaxed">Nama saya Shella Arifatun Nisa', dan saya baru saja menyelesaikan sekolah di SMK KRIAN 1 SIDOARJO. Dengan latar belakang pendidikan yang saya miliki, saya bersemangat untuk memulai perjalanan profesional saya dan terus berkembang dalam bidang/industri yang saya pilih nantinya.<br><br>Meskipun baru lulus, saya telah aktif mengembangkan keterampilan. Saya percaya dengan tekad dan semangat untuk terus belajar, saya dapat memberikan kontribusi yang positif dalam dunia profesional.<br><br>Terima kasih telah meluangkan waktu untuk melihat portofolio saya.</p>
+                </div>
+                <div class="glass-effect p-8 rounded-2xl hover-lift">
+                    <h3 class="text-2xl font-semibold gradient-text mb-4">Keahlian</h3>
+                    <div id="skills-list" class="space-y-3">
+                        <div class="skill-item">
+                            <span class="text-gray-700 font-medium">UI/UX Design</span>
+                            <div class="w-full bg-pink-light rounded-full h-2 mt-1">
+                                <div class="bg-pink-medium h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="text-gray-700 font-medium">Web Development</span>
+                            <div class="w-full bg-pink-light rounded-full h-2 mt-1">
+                                <div class="bg-pink-medium h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="text-gray-700 font-medium">Graphic Design</span>
+                            <div class="w-full bg-pink-light rounded-full h-2 mt-1">
+                                <div class="bg-pink-medium h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-content hidden relative">
+        <!-- Floating Elements -->
+        <div class="floating-element floating-heart" style="top: 10%; left: 5%;">
+            <svg class="w-6 h-6 text-pink-300" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
+        <div class="floating-element floating-triangle" style="bottom: 15%; right: 8%;">
+            <div class="w-0 h-0 border-l-5 border-r-5 border-b-8 border-l-transparent border-r-transparent border-b-pink-400"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+            <h2 class="text-4xl font-bold gradient-text text-center mb-12">Portfolio</h2>
+            <div id="portfolio-grid" class="grid md:grid-cols-3 gap-8">
+                <!-- Portfolio items will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-content hidden relative">
+        <!-- Floating Elements -->
+        <div class="floating-element floating-star" style="top: 15%; right: 12%;">
+            <svg class="w-8 h-8 text-pink-300" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+        </div>
+        <div class="floating-element floating-circle" style="bottom: 20%; left: 10%;">
+            <div class="w-5 h-5 bg-pink-400 rounded-full"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 py-20 relative z-10">
+            <h2 class="text-4xl font-bold gradient-text text-center mb-12">Kontak</h2>
+            <div class="glass-effect p-8 rounded-2xl hover-lift">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold gradient-text mb-6">Hubungi Saya</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-pink-medium" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                <span id="contact-email" class="text-gray-700">shellaarifa5@gmail.com</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-pink-medium" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                                <span id="contact-phone" class="text-gray-700">+62 895 3555 21076</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <form class="space-y-4">
+                            <input type="text" placeholder="Nama" class="w-full p-3 rounded-lg border border-gray-200 focus:border-pink-medium focus:outline-none">
+                            <input type="email" placeholder="Email" class="w-full p-3 rounded-lg border border-gray-200 focus:border-pink-medium focus:outline-none">
+                            <textarea placeholder="Pesan" rows="4" class="w-full p-3 rounded-lg border border-gray-200 focus:border-pink-medium focus:outline-none resize-none"></textarea>
+                            <button type="submit" class="w-full bg-pink-medium text-white py-3 rounded-lg hover:bg-pink-accent transition-colors">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Login -->
+    <div id="admin-login" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl p-8 max-w-md w-full">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Login Admin</h2>
+                    <button onclick="hideAdminLogin()" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <form onsubmit="event.preventDefault(); attemptLogin();" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Username</label>
+                        <input type="text" id="login-username" class="w-full p-3 border border-gray-200 rounded-lg focus:border-pink-medium focus:outline-none" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Password</label>
+                        <input type="password" id="login-password" class="w-full p-3 border border-gray-200 rounded-lg focus:border-pink-medium focus:outline-none" required>
+                    </div>
+                    
+                    <div id="login-error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                        Username atau password salah!
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button type="submit" class="flex-1 bg-pink-medium text-white py-3 rounded-lg hover:bg-pink-accent transition-colors">Login</button>
+                        <button type="button" onclick="hideAdminLogin()" class="flex-1 bg-gray-500 text-white py-3 rounded-lg hover:bg-gray-600 transition-colors">Batal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold text-gray-800">Panel Admin</h2>
+                    <button onclick="toggleAdmin()" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Home Section Editor -->
+                    <div class="border border-pink-200 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Edit Beranda</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Foto Profil</label>
+                                <div class="flex items-center space-x-4">
+                                    <div id="profile-preview" class="w-20 h-20 bg-pink-light rounded-full flex items-center justify-center overflow-hidden">
+                                        <svg class="w-10 h-10 text-pink-soft" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <input type="file" id="profile-upload" accept="image/*" class="hidden" onchange="handleProfileUpload(this)">
+                                        <button type="button" onclick="document.getElementById('profile-upload').click()" class="bg-pink-medium text-white px-4 py-2 rounded-lg hover:bg-pink-accent transition-colors">Upload Foto</button>
+                                        <button type="button" onclick="removeProfilePhoto()" class="ml-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors">Hapus</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Judul Utama</label>
+                                <input type="text" id="edit-home-title" class="w-full p-3 border border-gray-200 rounded-lg" value="Halo, Saya Shella">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Subtitle</label>
+                                <input type="text" id="edit-home-subtitle" class="w-full p-3 border border-gray-200 rounded-lg" value="Creative Designer & Developer">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Deskripsi</label>
+                                <textarea id="edit-home-description" class="w-full p-3 border border-gray-200 rounded-lg" rows="3">Selamat datang di portfolio saya. Saya adalah seorang desainer kreatif yang passionate dalam menciptakan karya visual yang indah dan fungsional.</textarea>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Link Portfolio Drive</label>
+                                <input type="url" id="edit-portfolio-link" class="w-full p-3 border border-gray-200 rounded-lg" value="https://drive.google.com/file/d/12Vo0uacIlcqZMSjWmMbjNdSNwRP_rttu/view?usp=drive_link" placeholder="https://drive.google.com/...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About Section Editor -->
+                    <div class="border border-pink-200 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Edit Tentang</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Foto About</label>
+                                <div class="flex items-center space-x-4">
+                                    <div id="about-image-preview" class="w-20 h-20 bg-pink-light rounded-lg flex items-center justify-center overflow-hidden">
+                                        <svg class="w-10 h-10 text-pink-soft" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <input type="file" id="about-image-upload" accept="image/*" class="hidden" onchange="handleAboutImageUpload(this)">
+                                        <button type="button" onclick="document.getElementById('about-image-upload').click()" class="bg-pink-medium text-white px-4 py-2 rounded-lg hover:bg-pink-accent transition-colors">Upload Foto</button>
+                                        <button type="button" onclick="removeAboutImage()" class="ml-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors">Hapus</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Judul Profil</label>
+                                <input type="text" id="edit-about-title" class="w-full p-3 border border-gray-200 rounded-lg" value="Profil">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Konten Profil</label>
+                                <textarea id="edit-about-content" class="w-full p-3 border border-gray-200 rounded-lg" rows="6">Nama saya Shella Arifatun Nisa', dan saya baru saja menyelesaikan sekolah di SMK KRIAN 1 SIDOARJO. Dengan latar belakang pendidikan yang saya miliki, saya bersemangat untuk memulai perjalanan profesional saya dan terus berkembang dalam bidang/industri yang saya pilih nantinya.
+
+Meskipun baru lulus, saya telah aktif mengembangkan keterampilan. Saya percaya dengan tekad dan semangat untuk terus belajar, saya dapat memberikan kontribusi yang positif dalam dunia profesional.
+
+Terima kasih telah meluangkan waktu untuk melihat portofolio saya.</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Section Editor -->
+                    <div class="border border-pink-200 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Edit Kontak</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="edit-contact-email" class="w-full p-3 border border-gray-200 rounded-lg" value="shellaarifa5@gmail.com">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Nomor Telepon</label>
+                                <input type="text" id="edit-contact-phone" class="w-full p-3 border border-gray-200 rounded-lg" value="+62 895 3555 21076">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Editor -->
+                    <div class="border border-pink-200 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">Edit Portfolio</h3>
+                        <div id="portfolio-editor" class="space-y-4">
+                            <!-- Portfolio items will be dynamically added here -->
+                        </div>
+                        <button onclick="addPortfolioItem()" class="mt-4 bg-pink-medium text-white px-4 py-2 rounded-lg hover:bg-pink-accent transition-colors">Tambah Project</button>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <button onclick="logoutAdmin()" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors">Logout</button>
+                        <div class="flex space-x-4">
+                            <button onclick="saveChanges()" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors">Simpan Perubahan</button>
+                            <button onclick="toggleAdmin()" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">Batal</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Portfolio data
+        let portfolioData = [
+            { title: "Project 1", description: "Deskripsi project pertama", image: null, url: "" },
+            { title: "Project 2", description: "Deskripsi project kedua", image: null, url: "" },
+            { title: "Project 3", description: "Deskripsi project ketiga", image: null, url: "" }
+        ];
+
+        // Image storage
+        let profileImage = null;
+        let aboutImage = null;
+        let portfolioLink = "https://drive.google.com/file/d/12Vo0uacIlcqZMSjWmMbjNdSNwRP_rttu/view?usp=drive_link";
+
+        // Navigation functions
+        function showSection(sectionName) {
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => section.classList.add('hidden'));
+            document.getElementById(sectionName).classList.remove('hidden');
+        }
+
+        // Admin authentication
+        let isAdminLoggedIn = false;
+        const adminCredentials = {
+            username: 'admin',
+            password: 'shella123'
+        };
+
+        // Admin panel functions
+        function toggleAdmin() {
+            if (!isAdminLoggedIn) {
+                showAdminLogin();
+            } else {
+                const adminPanel = document.getElementById('admin-panel');
+                if (adminPanel.classList.contains('hidden')) {
+                    adminPanel.classList.remove('hidden');
+                    loadAdminData();
+                } else {
+                    adminPanel.classList.add('hidden');
+                }
+            }
+        }
+
+        function showAdminLogin() {
+            const loginPanel = document.getElementById('admin-login');
+            loginPanel.classList.remove('hidden');
+        }
+
+        function hideAdminLogin() {
+            const loginPanel = document.getElementById('admin-login');
+            loginPanel.classList.add('hidden');
+            document.getElementById('login-username').value = '';
+            document.getElementById('login-password').value = '';
+            document.getElementById('login-error').classList.add('hidden');
+        }
+
+        function attemptLogin() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const errorDiv = document.getElementById('login-error');
+
+            if (username === adminCredentials.username && password === adminCredentials.password) {
+                isAdminLoggedIn = true;
+                hideAdminLogin();
+                toggleAdmin(); // Open admin panel
+                errorDiv.classList.add('hidden');
+            } else {
+                errorDiv.textContent = 'Username atau password salah!';
+                errorDiv.classList.remove('hidden');
+                // Clear password field
+                document.getElementById('login-password').value = '';
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            const adminPanel = document.getElementById('admin-panel');
+            adminPanel.classList.add('hidden');
+        }
+
+        function loadAdminData() {
+            // Load current content into admin form
+            document.getElementById('edit-home-title').value = document.getElementById('home-title').textContent;
+            document.getElementById('edit-home-subtitle').value = document.getElementById('home-subtitle').textContent;
+            document.getElementById('edit-home-description').value = document.getElementById('home-description').textContent;
+            document.getElementById('edit-about-title').value = document.getElementById('about-title').textContent;
+            document.getElementById('edit-about-content').value = document.getElementById('about-content').textContent;
+            document.getElementById('edit-contact-email').value = document.getElementById('contact-email').textContent;
+            document.getElementById('edit-contact-phone').value = document.getElementById('contact-phone').textContent;
+            document.getElementById('edit-portfolio-link').value = portfolioLink;
+            
+            loadPortfolioEditor();
+        }
+
+        function loadPortfolioEditor() {
+            const editor = document.getElementById('portfolio-editor');
+            editor.innerHTML = '';
+            
+            portfolioData.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'border border-pink-100 rounded-lg p-4';
+                itemDiv.innerHTML = `
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-semibold text-gray-800">Project ${index + 1}</h4>
+                        <button onclick="removePortfolioItem(${index})" class="text-red-500 hover:text-red-700">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-gray-700 mb-2 text-sm">Gambar Project</label>
+                            <div class="flex items-center space-x-3">
+                                <div id="portfolio-preview-${index}" class="w-16 h-16 bg-pink-light rounded-lg flex items-center justify-center overflow-hidden">
+                                    ${item.image ? `<img src="${item.image}" class="w-full h-full object-cover">` : `
+                                    <svg class="w-8 h-8 text-pink-soft" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                                    </svg>`}
+                                </div>
+                                <div>
+                                    <input type="file" id="portfolio-upload-${index}" accept="image/*" class="hidden" onchange="handlePortfolioImageUpload(${index}, this)">
+                                    <button type="button" onclick="document.getElementById('portfolio-upload-${index}').click()" class="bg-pink-medium text-white px-3 py-1 text-sm rounded hover:bg-pink-accent transition-colors">Upload</button>
+                                    <button type="button" onclick="removePortfolioImage(${index})" class="ml-2 bg-red-500 text-white px-3 py-1 text-sm rounded hover:bg-red-600 transition-colors">Hapus</button>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Judul Project" value="${item.title}" 
+                               onchange="updatePortfolioItem(${index}, 'title', this.value)"
+                               class="w-full p-2 border border-pink-200 rounded">
+                        <textarea placeholder="Deskripsi Project" 
+                                  onchange="updatePortfolioItem(${index}, 'description', this.value)"
+                                  class="w-full p-2 border border-pink-200 rounded" rows="2">${item.description}</textarea>
+                        <input type="url" placeholder="URL Project (opsional)" value="${item.url || ''}" 
+                               onchange="updatePortfolioItem(${index}, 'url', this.value)"
+                               class="w-full p-2 border border-pink-200 rounded">
+                    </div>
+                `;
+                editor.appendChild(itemDiv);
+            });
+        }
+
+        function addPortfolioItem() {
+            portfolioData.push({ title: "Project Baru", description: "Deskripsi project baru", image: null, url: "" });
+            loadPortfolioEditor();
+        }
+
+        function removePortfolioItem(index) {
+            portfolioData.splice(index, 1);
+            loadPortfolioEditor();
+        }
+
+        function updatePortfolioItem(index, field, value) {
+            portfolioData[index][field] = value;
+        }
+
+        // Image upload functions
+        function handleProfileUpload(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileImage = e.target.result;
+                    updateProfilePreview();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function handleAboutImageUpload(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    aboutImage = e.target.result;
+                    updateAboutImagePreview();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function handlePortfolioImageUpload(index, input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    portfolioData[index].image = e.target.result;
+                    updatePortfolioPreview(index);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function updateProfilePreview() {
+            const preview = document.getElementById('profile-preview');
+            const mainPhoto = document.getElementById('profile-photo');
+            
+            if (profileImage) {
+                preview.innerHTML = `<img src="${profileImage}" class="w-full h-full object-cover">`;
+                mainPhoto.innerHTML = `<img src="${profileImage}" class="w-full h-full object-cover">`;
+            }
+        }
+
+        function updateAboutImagePreview() {
+            const preview = document.getElementById('about-image-preview');
+            const display = document.getElementById('about-image-display');
+            const container = document.getElementById('about-image-container');
+            
+            if (aboutImage) {
+                preview.innerHTML = `<img src="${aboutImage}" class="w-full h-full object-cover">`;
+                display.innerHTML = `<img src="${aboutImage}" class="w-full h-full object-cover">`;
+                container.classList.remove('hidden');
+            }
+        }
+
+        function updatePortfolioPreview(index) {
+            const preview = document.getElementById(`portfolio-preview-${index}`);
+            if (portfolioData[index].image) {
+                preview.innerHTML = `<img src="${portfolioData[index].image}" class="w-full h-full object-cover">`;
+            }
+        }
+
+        function removeProfilePhoto() {
+            profileImage = null;
+            const preview = document.getElementById('profile-preview');
+            const mainPhoto = document.getElementById('profile-photo');
+            
+            const defaultSvg = `<svg class="w-10 h-10 text-pink-medium" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>`;
+            
+            preview.innerHTML = defaultSvg;
+            mainPhoto.innerHTML = `<svg class="w-40 h-40 text-pink-medium" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>`;
+        }
+
+        function removeAboutImage() {
+            aboutImage = null;
+            const preview = document.getElementById('about-image-preview');
+            const container = document.getElementById('about-image-container');
+            
+            preview.innerHTML = `<svg class="w-10 h-10 text-pink-medium" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+            </svg>`;
+            container.classList.add('hidden');
+        }
+
+        function removePortfolioImage(index) {
+            portfolioData[index].image = null;
+            const preview = document.getElementById(`portfolio-preview-${index}`);
+            preview.innerHTML = `<svg class="w-8 h-8 text-pink-medium" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+            </svg>`;
+        }
+
+        function saveChanges() {
+            // Update home section
+            document.getElementById('home-title').textContent = document.getElementById('edit-home-title').value;
+            document.getElementById('home-subtitle').textContent = document.getElementById('edit-home-subtitle').value;
+            document.getElementById('home-description').textContent = document.getElementById('edit-home-description').value;
+            
+            // Update about section
+            document.getElementById('about-title').textContent = document.getElementById('edit-about-title').value;
+            document.getElementById('about-content').innerHTML = document.getElementById('edit-about-content').value.replace(/\n/g, '<br>');
+            
+            // Update contact section
+            document.getElementById('contact-email').textContent = document.getElementById('edit-contact-email').value;
+            document.getElementById('contact-phone').textContent = document.getElementById('edit-contact-phone').value;
+            
+            // Update portfolio link
+            portfolioLink = document.getElementById('edit-portfolio-link').value;
+            updatePortfolioLink();
+            
+            // Update portfolio
+            updatePortfolioDisplay();
+            
+            // Close admin panel
+            toggleAdmin();
+            
+            // Show success message
+            alert('Perubahan berhasil disimpan!');
+        }
+
+        function updatePortfolioLink() {
+            const portfolioLinkElement = document.querySelector('a[href*="drive.google.com"]');
+            if (portfolioLinkElement) {
+                portfolioLinkElement.href = portfolioLink;
+            }
+        }
+
+        function updatePortfolioDisplay() {
+            const portfolioGrid = document.getElementById('portfolio-grid');
+            portfolioGrid.innerHTML = '';
+            
+            portfolioData.forEach((item, index) => {
+                const icons = [
+                    'M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z',
+                    'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z',
+                    'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'
+                ];
+                
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'portfolio-item glass-effect rounded-2xl overflow-hidden hover:scale-105 transition-transform';
+                
+                const imageContent = item.image 
+                    ? `<img src="${item.image}" class="w-full h-full object-cover">`
+                    : `<svg class="w-16 h-16 text-pink-medium" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="${icons[index % icons.length]}"/>
+                       </svg>`;
+                
+                const portfolioContent = `
+                    <div class="h-48 bg-pink-light flex items-center justify-center overflow-hidden">
+                        ${imageContent}
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">${item.title}</h3>
+                        <p class="text-gray-600 mb-3">${item.description}</p>
+                        ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-pink-medium hover:text-pink-accent transition-colors">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            Lihat Project
+                        </a>` : ''}
+                    </div>
+                `;
+                
+                if (item.url) {
+                    itemDiv.innerHTML = `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="block">${portfolioContent}</a>`;
+                } else {
+                    itemDiv.innerHTML = portfolioContent;
+                }
+                portfolioGrid.appendChild(itemDiv);
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+            updatePortfolioDisplay();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'981d811fb109ce3e',t:'MTc1ODMzMTI2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
